@@ -38,7 +38,8 @@ def login():
     sleep(1)
     driver.find_element_by_css_selector(log2).click()
 
-    sleep(10)
+    wait(driver, 5).until(ex.presence_of_element_located((By.CSS_SELECTOR, "#main-pane")))
+
 
 
 
