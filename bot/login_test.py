@@ -1,5 +1,7 @@
+from selenium import webdriver
+import pytest
+
 import objects as o
-import setup as s
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait as wait
@@ -7,7 +9,6 @@ from selenium.webdriver.support import expected_conditions as ex
 
 from time import sleep
 
-# Objects:
 url = o.url
 log1 = o.loginMain
 user = o.username
@@ -16,12 +17,21 @@ log2 = o.loginSecond
 userInput = o.userInput
 passInput = o.passInput
 
-# setup
-driver = s.driver
+@pytest.fixture()
+def setup_driver():
+    return webdriver.Chrome()
 
-def login():
 
+def test_url(setup_driver):
+    driver = setup_driver
+    expected_url = "https://www.bigtime.net/"
+    driver.get(url)
+    actual_url = driver.current_url
 
+    assert expected_url == actual_url, "Url's are not the same"
+
+def test_login_successful(setup_driver):
+    driver = setup_driver
     driver.get(url)
 
     wait(driver, 5).until(ex.presence_of_element_located((By.CSS_SELECTOR, log1)))
@@ -30,7 +40,7 @@ def login():
 
     driver.find_element_by_css_selector(log1).click()
 
-    #wait till change of page
+    # wait till change of page
     wait(driver, 5).until(ex.presence_of_element_located((By.CSS_SELECTOR, user)))
     driver.find_element_by_css_selector(user).send_keys(userInput)
     sleep(1)
@@ -38,16 +48,7 @@ def login():
     sleep(1)
     driver.find_element_by_css_selector(log2).click()
 
-    wait(driver, 5).until(ex.presence_of_element_located((By.CSS_SELECTOR, "#main-pane")))
+    expected = wait(driver, 5).until(ex.presence_of_element_located((By.CSS_SELECTOR, "#main-pane")))
+    actual = driver.find_element_by_css_selector("#main-pane")
 
-
-
-
-
-
-
-
-
-
-
-
+    assert expected == actual, "Login not successful"

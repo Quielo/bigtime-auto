@@ -1,3 +1,9 @@
+# Useful data
+
+userInput = "ezequiel.gonzalez@enroutesystems.com"
+passInput = "-123quielo"
+hours = '8'
+
 # Login objects
 
 url = 'https://www.bigtime.net'

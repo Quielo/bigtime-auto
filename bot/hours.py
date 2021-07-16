@@ -13,6 +13,11 @@ import pyautogui as pai
 lists = o.selectLists
 week = o.week
 save = o.save
+mon = "td:nth-of-type(4) > .hours-inner > .ng-binding.total-hours"
+tue = "td:nth-of-type(5) > .hours-inner > .ng-binding.total-hours"
+wed = "td:nth-of-type(6) > .hours-inner > .ng-binding.total-hours"
+thu = "td:nth-of-type(7) > .hours-inner > .ng-binding.total-hours"
+fri = "td:nth-of-type(8) > .hours-inner > .ng-binding.total-hours"
 
 def weekwork():
 
@@ -23,13 +28,31 @@ def weekwork():
 # setup
 driver = s.driver
 
-def start():
-
+def hours():
+    global monday
+    global tuesday
+    global wednesday
+    global thursday
+    global friday
     wait(driver, 5).until(ex.presence_of_element_located((By.CSS_SELECTOR, lists)))
 
     driver.find_element_by_css_selector(lists).click()
     sleep(1)
     weekwork()
     sleep(2)
-    driver.find_element_by_css_selector(save).click()
+    monday = driver.find_element_by_css_selector(mon).text
+    tuesday = driver.find_element_by_css_selector(mon).text
+    wednesday = driver.find_element_by_css_selector(mon).text
+    thursday = driver.find_element_by_css_selector(mon).text
+    friday = driver.find_element_by_css_selector(mon).text
 
+    # driver.find_element_by_css_selector(save).click()
+
+    #driver.close()
+    #driver.quit()
+
+global monday
+global tuesday
+global wednesday
+global thursday
+global friday
