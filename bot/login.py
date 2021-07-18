@@ -6,7 +6,6 @@ from selenium.webdriver.support.ui import WebDriverWait as wait
 from selenium.webdriver.support import expected_conditions as ex
 
 from time import sleep
-import connection.database as db
 
 # Objects:
 url = o.url
@@ -14,13 +13,13 @@ log1 = o.loginMain
 user = o.username
 passwd = o.password
 log2 = o.loginSecond
-userInput = o.userInput
-passInput = o.passInput
+# userInput = o.userInput
+# passInput = o.passInput
 
 # setup
 driver = s.driver
 
-def login():
+def login(userInput, passInput):
 
     driver.get(url)
 

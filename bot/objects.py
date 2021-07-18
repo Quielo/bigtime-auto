@@ -47,6 +47,3 @@ sat = "td:nth-of-type(9)  .form-control.ng-not-empty.ng-pristine.ng-untouched.ng
 week = [mon, tue, wed, thu, fri]
 
 save = "[bt-process='saveRow\(activeRow\)']"
-
-
-# [(1, 'quielo', '123quielo'), (2, 'tommy', '1wachawacha'), (3, 'timothy', 'tigresi123-!!')]

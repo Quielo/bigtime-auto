@@ -1,8 +1,5 @@
 import sqlite3
 
-connection = sqlite3.connect('users_data_database.db')
-
-cursor = connection.cursor()
 
 create_table = """
 CREATE TABLE IF NOT EXISTS users_data_table (
@@ -36,42 +33,47 @@ FROM
 """
 
 
-userInput = "tezequiel.gonzalez@enroutesystems.com"
-passInput = "3nr0u73!"
-
-cursor.execute(create_table)
-
-def adding():
+def adding(userInput, passInput):
+    connection = sqlite3.connect('users_data_database.db')
+    cursor = connection.cursor()
+    cursor.execute(create_table)
 
     data_tuple = (userInput, passInput)
     cursor.execute(add_to_table, data_tuple)
     connection.commit()
 
-    cursor.execute("SELECT * FROM users_data_table;")
+    """cursor.execute("SELECT * FROM users_data_table;")
     results = cursor.fetchall()
-    print(results)
+    print(results)"""
 
-#adding()
+#adding("quielo", "testo")
 
-def deleting():
+def deleting(userInput, passInput):
+    connection = sqlite3.connect('users_data_database.db')
+    cursor = connection.cursor()
+    cursor.execute(create_table)
 
     data_tuple = (userInput, passInput)
     cursor.execute(delete_from_table, data_tuple)
     connection.commit()
 
-    cursor.execute("SELECT * FROM users_data_table;")
+    """cursor.execute("SELECT * FROM users_data_table;")
     results = cursor.fetchall()
-    print(results)
+    print(results)"""
 
-#deleting()
+#deleting("quielo", "testo")
 
 def selecting():
+    connection = sqlite3.connect('users_data_database.db')
+    cursor = connection.cursor()
+    cursor.execute(create_table)
 
     cursor.execute(read_table)
     results = cursor.fetchall()
-    for res in results:
+    """for res in results:
         print(res[0])
         print(res[1])
-        print("--------")
+        print("--------")"""
+    return results
 
-selecting()
+#selecting()

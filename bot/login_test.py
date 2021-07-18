@@ -1,7 +1,7 @@
 from selenium import webdriver
 import pytest
 
-import objects as o
+import bot.objects as o
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait as wait

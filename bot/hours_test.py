@@ -1,8 +1,8 @@
 import pytest
 
-import objects as o
-import login as l
-import hours as h
+import bot.objects as o
+import bot.login as l
+import bot.hours as h
 
 # Objects
 lists = o.selectLists
