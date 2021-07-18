@@ -10,19 +10,32 @@ ADDR = (SERVER, PORT)
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect(ADDR)
 
-def send(msg):
-    message = msg.encode(FORMAT)
-    msg_length = len(message)
+def send(user, password, action):
+
+    USER = user.encode(FORMAT)
+    PASSWORD = password.encode(FORMAT)
+    ACTION = action.encode(FORMAT)
+
+    # For user
+    msg_length = len(USER)
     send_length = str(msg_length).encode(FORMAT)
     send_length += b' ' * (HEADER - len(send_length))
     client.send(send_length)
-    client.send(message)
+    client.send(USER)
     print(client.recv(2048).decode(FORMAT))
 
-send("Hello World!")
-input()
-send("Hello Everyone!")
-input()
-send("Hello Tim!")
+    # For password
+    msg_length = len(PASSWORD)
+    send_length = str(msg_length).encode(FORMAT)
+    send_length += b' ' * (HEADER - len(send_length))
+    client.send(send_length)
+    client.send(PASSWORD)
+    print(client.recv(2048).decode(FORMAT))
 
-send(DISCONNECT_MESSAGE)
+    # For action
+    msg_length = len(ACTION)
+    send_length = str(msg_length).encode(FORMAT)
+    send_length += b' ' * (HEADER - len(send_length))
+    client.send(send_length)
+    client.send(ACTION)
+    print(client.recv(2048).decode(FORMAT))

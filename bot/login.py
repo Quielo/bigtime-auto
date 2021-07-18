@@ -1,11 +1,12 @@
-import objects as o
-import setup as s
+import bot.objects as o
+import bot.setup as s
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait as wait
 from selenium.webdriver.support import expected_conditions as ex
 
 from time import sleep
+import connection.database as db
 
 # Objects:
 url = o.url
@@ -20,7 +21,6 @@ passInput = o.passInput
 driver = s.driver
 
 def login():
-
 
     driver.get(url)
 

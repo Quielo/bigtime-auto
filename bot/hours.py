@@ -1,5 +1,5 @@
-import objects as o
-import setup as s
+import bot.objects as o
+import bot.setup as s
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait as wait
