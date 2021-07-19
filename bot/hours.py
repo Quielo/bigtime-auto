@@ -46,7 +46,7 @@ def hours():
     thursday = driver.find_element_by_css_selector(mon).text
     friday = driver.find_element_by_css_selector(mon).text
 
-    # driver.find_element_by_css_selector(save).click()
+    #driver.find_element_by_css_selector(save).click()
 
     #driver.close()
     #driver.quit()

@@ -38,7 +38,7 @@ def handle_client(conn, addr):
                 password = data_list[1]
                 action = data_list[2]
                 print("PRE " + str(data_list))
-
+                # save or delete to DB
                 if action == "start":
                     db.adding(user, password)
                 elif action == "stop":

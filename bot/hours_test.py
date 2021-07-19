@@ -15,9 +15,9 @@ def setup_run():
     l.login()
     h.hours()
 
-@pytest.fixture()
+"""@pytest.fixture()
 def setup_brakeout():
-    pass
+    pass"""
 
 
 @pytest.mark.usefixtures("setup_run")

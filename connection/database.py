@@ -34,7 +34,7 @@ FROM
 
 
 def adding(userInput, passInput):
-    connection = sqlite3.connect('users_data_database.db')
+    connection = sqlite3.connect('connection/users_data_database.db')
     cursor = connection.cursor()
     cursor.execute(create_table)
 
@@ -49,7 +49,7 @@ def adding(userInput, passInput):
 #adding("quielo", "testo")
 
 def deleting(userInput, passInput):
-    connection = sqlite3.connect('users_data_database.db')
+    connection = sqlite3.connect('connection/users_data_database.db')
     cursor = connection.cursor()
     cursor.execute(create_table)
 
@@ -63,17 +63,20 @@ def deleting(userInput, passInput):
 
 #deleting("quielo", "testo")
 
-def selecting():
-    connection = sqlite3.connect('users_data_database.db')
+def selecting() -> list:
+    connection = sqlite3.connect('connection/users_data_database.db')
     cursor = connection.cursor()
     cursor.execute(create_table)
 
     cursor.execute(read_table)
     results = cursor.fetchall()
-    """for res in results:
+    print(type(results))
+    print(results)
+    for res in results:
         print(res[0])
         print(res[1])
-        print("--------")"""
+        print("--------")
+
     return results
 
-#selecting()
+selecting()
