@@ -1,7 +1,7 @@
 # Useful data
 
 userInput = "ezequiel.gonzalez@enroutesystems.com"
-passInput = "-123quielo"
+passInput = "user_password"
 hours = '8'
 
 # Login objects
